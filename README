@@ -1,0 +1,7 @@
+32位机systemtest_0.1_i386.deb
+64位机systemtest_0.1_amd64.deb
+
+安装命令：
+sudo dpkg -i xxx.deb
+卸载命令：
+sudo dpkg -r xxx

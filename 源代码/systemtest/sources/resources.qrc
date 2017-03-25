@@ -1,0 +1,99 @@
+<RCC>
+    <qresource prefix="/page1">
+        <file>func1.png</file>
+        <file>func2.png</file>
+        <file>func3.png</file>
+        <file>func4.png</file>
+        <file>func5.png</file>
+        <file>func6.png</file>
+        <file>func7.png</file>
+        <file>func8.png</file>
+        <file>logo.png</file>
+        <file>logo1.png</file>
+        <file>score.gif</file>
+        <file>score.png</file>
+    </qresource>
+    <qresource prefix="/boot">
+        <file>img/loading.png</file>
+    </qresource>
+    <qresource prefix="/title">
+        <file>arrow_down.png</file>
+        <file>close.png</file>
+        <file>close_hover.png</file>
+        <file>close_pressed.png</file>
+        <file>feedback.png</file>
+        <file>feedback_hover.png</file>
+        <file>feedback_pressed.png</file>
+        <file>menu.png</file>
+        <file>menu_hover.png</file>
+        <file>menu_pressed.png</file>
+        <file>min.png</file>
+        <file>min_hover.png</file>
+        <file>min_pressed.png</file>
+        <file>skin.png</file>
+        <file>skin_hover.png</file>
+        <file>skin_pressed.png</file>
+    </qresource>
+    <qresource prefix="/skin">
+        <file>1_big.jpg</file>
+        <file>2_big.png</file>
+        <file>3_big.jpg</file>
+        <file>4_big.jpg</file>
+        <file>5_big.jpg</file>
+        <file>6_big.jpg</file>
+        <file>7_big.jpg</file>
+        <file>8_big.png</file>
+    </qresource>
+    <qresource prefix="/sys_test_widget">
+        <file>power.png</file>
+        <file>check.png</file>
+        <file>html/index.html</file>
+    </qresource>
+    <qresource prefix="/html">
+        <file>html/picture/new_1.png</file>
+        <file>html/picture/new_2.png</file>
+        <file>html/picture/new_3.png</file>
+        <file>html/picture/new_4.png</file>
+        <file>html/picture/new_5.png</file>
+        <file>html/picture/new_6.jpg</file>
+        <file>html/picture/new_7.png</file>
+        <file>html/picture/new_8.jpg</file>
+        <file>html/picture/new_9.jpg</file>
+        <file>html/picture/new_10.png</file>
+        <file>html/picture/new_11.jpg</file>
+        <file>html/picture/new_12.png</file>
+        <file>html/picture/new_13.jpg</file>
+        <file>html/picture/new_14.png</file>
+        <file>html/picture/new_15.jpg</file>
+        <file>html/picture/new_16.png</file>
+        <file>html/index.html</file>
+        <file>html/picture/1.jpg</file>
+    </qresource>
+    <qresource prefix="/page_two">
+        <file>cpu2.jpg</file>
+        <file>cpu1.jpg</file>
+    </qresource>
+    <qresource prefix="/disk">
+        <file>disk4.jpg</file>
+        <file>disk3.jpg</file>
+        <file>disk2.jpg</file>
+        <file>disk1.jpg</file>
+    </qresource>
+    <qresource prefix="/net">
+        <file>net4.jpg</file>
+        <file>net3.jpg</file>
+        <file>net2.jpg</file>
+        <file>net1.jpg</file>
+    </qresource>
+    <qresource prefix="/other">
+        <file>os2.jpg</file>
+        <file>os1.jpg</file>
+        <file>os3.jpg</file>
+    </qresource>
+    <qresource prefix="/page_serven">
+        <file>security_1.png</file>
+        <file>security_2.png</file>
+        <file>security_3.png</file>
+        <file>security_4.png</file>
+    </qresource>
+</RCC>

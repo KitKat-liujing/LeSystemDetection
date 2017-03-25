@@ -1,0 +1,37 @@
+#!/bin/bash
+#测一定时间内无线网总流量和平均流量
+wnum=`cat /proc/net/dev |grep "wlan" |wc -l`
+#判断本机有没有无线网卡
+if [ $wnum -gt 0 ];then
+	for((i=0;i<$wnum;i++))
+	do
+		m=`ethtool wlan$i |grep "Link detected: yes" |wc -l` > /dev/null #判断无线网是否连接
+		if [ $m -eq 1 ] 
+		then
+			eth=wlan$i
+			#echo -n "请输入需要查询的网卡的接口:"
+			#read eth
+			#echo "你要查询的网卡接口为"$eth
+			#echo -n "输入需要等到的时间(秒):"
+			#read sec
+			sec=$1
+			echo "您计算的是"$sec"秒内的平均流量,请等待."
+			infirst=$(awk '/'$eth'/{print $1 }' /proc/net/dev |sed 's/'$eth'://')
+			outfirst=$(awk '/'$eth'/{print $10 }' /proc/net/dev)
+			sumfirst=$(($infirst+$outfirst))
+			sleep $sec"s"
+			inend=$(awk '/'$eth'/{print $1 }' /proc/net/dev |sed 's/'$eth'://')
+			outend=$(awk '/'$eth'/{print $10 }' /proc/net/dev)
+			sumend=$(($inend+$outend))
+			sum=$(($sumend-$sumfirst))
+			echo "$eth 网卡接口："
+			echo $sec" 秒内总流量为:"$sum"bytes"
+			aver=$(($sum/$sec))
+			echo "$sec 内的平均流量为:"$aver"bytes/s"
+		else
+			echo "无线网未连接，无法测试！"
+		fi
+		done
+	else
+		echo "本机没有无线网卡"
+	fi

@@ -1,0 +1,54 @@
+gvar1=2
+
+#每秒有线网平均负载
+enum=`cat /proc/net/dev |grep "eth" |wc -l`
+for((j=0;j<$enum;j++))
+do 
+	#packets 接收的报文总数
+	erpackets1=`cat /proc/net/dev |grep "eth$j"|awk '{print $3}'`
+
+	#packets 发送的报文总数
+	etpackets1=`cat /proc/net/dev |grep "eth$j"|awk '{print $11}'`
+
+
+	etotalpackets1=$[$erpackets1+$etpackets1]
+
+	sleep 1
+	#packets 接收的报文总数
+	erpackets2=`cat /proc/net/dev |grep "eth$j"|awk '{print $3}'`
+
+	#packets 发送的报文总数
+	etpackets2=`cat /proc/net/dev |grep "eth$j"|awk '{print $11}'`
+
+
+	etotalpackets2=$[$erpackets2+$etpackets2]
+	esub=$[$etotalpackets2-$etotalpackets1]
+	enetavg=`awk 'BEGIN{printf"%.2f\n",'$esub' / '$gvar1'}'`
+	echo "eth$j每秒平均网络负载为：$enetavg"
+done
+
+#每秒无线网平均负载
+wnum=`cat /proc/net/dev |grep "wlan" |wc -l`
+for((i=0;i<$wnum;i++))
+do 
+	#packets 接收的报文总数
+	wrpackets1=`cat /proc/net/dev |grep "wlan$i"|awk '{print $3}'`
+
+	#packets 发送的报文总数
+	wtpackets1=`cat /proc/net/dev |grep "wlan$i"|awk '{print $11}'`
+
+	wtotalpackets1=$[$wrpackets1+$wtpackets1]
+	sleep 1
+	#packets 接收的报文总数
+	wrpackets2=`cat /proc/net/dev |grep "wlan$i"|awk '{print $3}'`
+
+	#packets 发送的报文总数
+	wtpackets2=`cat /proc/net/dev |grep "wlan$i"|awk '{print $11}'`
+
+	wtotalpackets2=$[$wrpackets2+$wtpackets2]
+	wsub=$[$wtotalpackets2-$wtotalpackets1]
+	wnetavg=`awk 'BEGIN{printf"%.2f\n",'$wsub' / '$gvar1'}'`
+	echo "wlan$i每秒平均网络负载为：$wnetavg"
+done
+
+

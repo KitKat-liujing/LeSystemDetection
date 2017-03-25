@@ -1,0 +1,5 @@
+#! /bin/bash
+echo -e "请输入参数："
+read str param
+echo -e "str="$str
+echo -e "param="$param

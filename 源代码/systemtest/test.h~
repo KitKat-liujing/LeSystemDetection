@@ -1,0 +1,102 @@
+#include <stdio.h>
+#include <string.h>
+/*此程序对每个检测项进行打分*/
+/*所有评分函数的返回值为int*/
+
+/*CPU用户占用率评分函数*/
+int get_cpu_user(float percent)
+{
+	if(percent > 70)
+	{
+		return 5;
+	}
+	else if(percent >= 65 && percent <= 70)
+	{
+		return 0;
+	}
+	else if(percent >= 60 && percent < 65)
+	{
+		return 2;
+	}
+	else if(percent >= 50 && percent < 60)
+	{
+		return 3;
+	}
+	else
+	{
+		return 4;
+	}
+	
+	return 0;
+}
+
+/*CPU系统占用率评分函数*/
+int get_cpu_sys(float percent)
+{
+	if(percent > 70)
+	{
+		return 5;
+	}
+	else if(percent >= 60 && percent <= 70)
+	{
+		return 4;
+	}
+	else if(percent > 35 && percent < 60)
+	{
+		return 3;
+	}
+	else if(percent >= 30 && percent <= 35 )
+	{
+		return 0;
+	}
+	else 
+	{
+		return 4;
+	}
+	
+	return 0;
+}
+
+/*CPU虚拟化评分函数*/
+int get_cpu_virtual(int flag)
+{
+	switch(flag)
+	{
+		case 0:   //不支持虚拟化
+			return 2;
+			break;
+		case 1:  //支持AMD提供的虚拟化
+			return 1;
+			break;
+		case 2:  //支持Intel提供的虚拟化
+			return 0;
+			break;
+		default:
+			break;
+	}
+}
+
+/*对指定项评分函数*/
+int get_point(char *str,void *val)
+{
+	if(!strncmp("cpuuser",str,7))
+	{
+		float num = *((float*)val);
+		return get_cpu_user(num);
+	}
+
+	if(!strncmp("cpusys",str,6))
+	{
+		float num1 = *((float*)val);
+		return get_cpu_sys(num1);
+	}
+	
+	if(!strncmp("cpuvirtual",str,10))
+	{
+		int num2 = *((int*)val);
+		printf("num2=%d\n",num2);
+		return get_cpu_virtual(num2);
+	}
+	
+	return 0;
+}

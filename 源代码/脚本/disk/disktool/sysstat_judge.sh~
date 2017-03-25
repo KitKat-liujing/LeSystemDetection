@@ -1,0 +1,14 @@
+#########################################################################
+# File Name: is_install.sh
+# Author: liujing
+# mail: 2510034575@qq.com
+# Created Time: 2015年01月11日 星期日 15时51分57秒
+#########################################################################
+#!/bin/bash
+#判断软件安装
+a=`dpkg -l | awk '{if(NR!=1&&NR!=2&&NR!=3&&NR!=4&&NR!=5) {print $2}}' |grep "sysstat" |wc -l`
+if [ $a == 0 ];then
+	echo "sysstat 未安装"
+else 
+	echo "sysstat 已安装"
+fi
